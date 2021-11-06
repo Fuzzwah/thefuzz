@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip setuptools wheel          
-          pip install pytest pycodestyle docutils Pygments hypothesis python-Levenshtein               
+          pip install pytest pycodestyle docutils Pygments hypothesis rapidfuzz              
       - name: Test with pytest        
         run: |
           ${{ matrix.test-cmd }}
