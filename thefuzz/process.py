@@ -7,6 +7,9 @@ import logging
 from functools import partial
 
 
+_logger = logging.getLogger(__name__)
+
+
 default_scorer = fuzz.WRatio
 
 
@@ -70,7 +73,7 @@ def extractWithoutOrder(query, choices, processor=default_processor, scorer=defa
         pass
 
     # If the processor was removed by setting it to None
-    # perfom a noop as it still needs to be a function
+    # perform a noop as it still needs to be a function
     if processor is None:
         processor = no_process
 
@@ -78,7 +81,7 @@ def extractWithoutOrder(query, choices, processor=default_processor, scorer=defa
     processed_query = processor(query)
 
     if len(processed_query) == 0:
-        logging.warning(u"Applied processor reduces input query to empty string, "
+        _logger.warning(u"Applied processor reduces input query to empty string, "
                         "all comparisons will have score 0. "
                         "[Query: \'{0}\']".format(query))
 
