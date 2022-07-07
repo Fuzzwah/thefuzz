@@ -4,28 +4,15 @@ from __future__ import unicode_literals
 import platform
 import warnings
 
-try:
-    from rapidfuzz.fuzz import (
-        ratio as _ratio,
-        partial_ratio as _partial_ratio,
-        token_set_ratio as _token_set_ratio,
-        token_sort_ratio as _token_sort_ratio,
-        partial_token_set_ratio as _partial_token_set_ratio,
-        partial_token_sort_ratio as _partial_token_sort_ratio,
-        WRatio as _WRatio
-    )
-except ImportError:
-    if platform.python_implementation() != "PyPy":
-        warnings.warn('Using slow pure-python SequenceMatcher. Install rapidfuzz to remove this warning')
-    from ._fuzz import (
-        ratio as _ratio,
-        partial_ratio as _partial_ratio,
-        token_set_ratio as _token_set_ratio,
-        token_sort_ratio as _token_sort_ratio,
-        partial_token_set_ratio as _partial_token_set_ratio,
-        partial_token_sort_ratio as _partial_token_sort_ratio,
-        WRatio as _WRatio
-    )
+from rapidfuzz.fuzz import (
+    ratio as _ratio,
+    partial_ratio as _partial_ratio,
+    token_set_ratio as _token_set_ratio,
+    token_sort_ratio as _token_sort_ratio,
+    partial_token_set_ratio as _partial_token_set_ratio,
+    partial_token_sort_ratio as _partial_token_sort_ratio,
+    WRatio as _WRatio
+)
 
 from . import utils
 
